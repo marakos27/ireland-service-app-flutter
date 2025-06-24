@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 // Это стандартное демо-приложение Flutter
 import 'package:ireland_service_app/app.dart';
@@ -7,6 +8,13 @@ import 'package:ireland_service_app/app.dart';
 Future<void> main() async {
   // Убедимся, что все плагины инициализированы
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Supabase.initialize(
+    // ВАЖНО: Замените на ваши данные из проекта Supabase
+    url: 'https://ijdseersqcvmqbjrzdwn.supabase.co',
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlqZHNlZXJzcWN2bXFianJ6ZHduIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAwMjUxMDIsImV4cCI6MjA2NTYwMTEwMn0.ETznZ5pw-pGxuiJBrDnOgzKTu_KhckLfrcyhrRn48XM',
+  );
 
   await SentryFlutter.init(
     (options) {
